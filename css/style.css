@@ -1,0 +1,121 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+body {
+  background: #bbbbbb;
+}
+.header {
+  min-height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #aaaaaa;
+  font-size: 3rem;
+}
+.wrapper {
+  height: calc(100vh - 100px);
+  max-width: 1280px;
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+}
+.carousel {
+  position: relative;
+  background: #ffffff;
+  height: 100px;
+  display: flex;
+  max-width: 100%;
+  overflow: hidden;
+}
+.carousel::before,
+.carousel::after {
+  position: absolute;
+  content: "";
+  width: 200px;
+  height: 100%;
+
+  background: linear-gradient(to right, #ffffff 0%, transparent 100%);
+
+  top: 0;
+  z-index: 1;
+}
+.carousel::before {
+  left: 0;
+}
+.carousel::after {
+  right: 0;
+  transform: rotate(180deg);
+}
+.slide {
+  display: flex;
+  height: inherit;
+  align-items: center;
+
+  animation: slideshow 30s linear infinite;
+}
+.slide__image {
+  width: auto;
+  height: calc(100% - 40px);
+  margin: 0 40px;
+}
+@keyframes slideshow {
+  0% {
+    transform: translate(0%);
+  }
+  100% {
+    transform: translate(-100%);
+  }
+}
+
+.header__text {
+  padding: 10px;
+}
+.header__logo {
+  opacity: 0.4;
+  color: steelblue;
+  font: 120px Merienda;
+  text-shadow: 1px 1px 5px #dddddd, 2px 2px 5px #ffffff, 3px 3px 5px #ffffff,
+    4px 4px 5px #ffffff, 5px 5px 5px #ffffff, 6px 6px 5px #adadad,
+    7px 7px 5px #adadad, 8px 8px 5px #adadad, 9px 9px 5px #adadad,
+    10px 10px 5px #adadad, 11px 11px 5px, 12px 12px 5px;
+  transition: opacity 500ms linear, text-shadow 500ms ease-in-out,
+    color 300ms linear;
+}
+.header__logo:hover {
+  opacity: 0.8;
+  text-shadow: 1px 1px #454545;
+  color: hotpink;
+  text-shadow: 0px 0px 20px #000000;
+  animation: myanim 100ms infinite linear;
+}
+.header__logo:active {
+  opacity: 0.8;
+  text-shadow: 1px 1px 5px #000000, 2px 2px 5px #000000, 3px 3px 5px #000000,
+    4px 4px 5px #000000, 5px 5px 5px #000000, 6px 6px 50px #000000,
+    7px 7px 5px #000000, 8px 8px 5px #000000, 9px 9px 5px #000000,
+    10px 10px 5px #000000, 11px 11px 5px #000000, 12px 12px 5px #000000,
+    13px 13px 5px #000000, 14px 14px 5px #000000, 15px 15px 5px #000000,
+    16px 16px 5px #000000, 16px 16px 5px #000000, 17px 17px 5px #000000,
+    18px 18px 5px #000000, 19px 19px 5px #000000;
+}
+@keyframes myanim {
+  10% {
+    transform: scale(1) rotate(0deg);
+  }
+  20% {
+    transform: scale(1) rotate(-3deg);
+  }
+  80% {
+    transform: scale(1) rotate(3deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+  }
+}
